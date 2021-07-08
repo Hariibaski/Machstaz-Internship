@@ -1,0 +1,10 @@
+import asyncio
+import websockets
+
+async def new():
+    uri = "ws://localhost:8765"
+    async with websockets.connect(uri) as websocket:
+        await websocket.send("Hii")
+        await websocket.recv()
+
+asyncio.get_event_loop().run_until_complete(new())
